@@ -3,25 +3,24 @@ from datetime import datetime
 
 print("\nWelcome to the 'Cryptocurrency Investment Analyzer'.")
 
+# Checks if user input is a valid integer, and converts input from string to integer.  
 def read_valid_int(prompt, min, max):
-    # Checks if user input is a valid integer, and converts input from string to integer. 
-    
+
     userInput = input(prompt)
     if userInput.isdigit():
         value = int(userInput)
         if value >= min and value <= max:
             return value
-
+        # For fun
         if value > 1000000:
             print("Please, please, please do not invest more than $1,000,000 at a time.")
     # If input is not a digit within min and max, the return message prompts the user to try again.
     return read_valid_int(f"Please enter your choice as an integer between {min} and {max}: ", min, max) 
 
-
+# Prints prices and allocation along with respective symbols
 def showPrices(portfolio):
     print()
     prices = getPrices(portfolio)
-
     # Header
     print(f"{'Symbol':<8} | {'Current Price':>15} | {'Allocation':>12}")
     print('-'*50)
@@ -32,6 +31,7 @@ def showPrices(portfolio):
         print(f"{key:<8} | ${current_price:>14} | {allocation:>11}%")
     print()
 
+# Calculates how much to invest based on selected portfolio, desired amount to invest, and allocation percentages
 def calculateInvestments(portfolio, value):
     print()
     selection = ""
@@ -45,16 +45,14 @@ def calculateInvestments(portfolio, value):
     prices = getPrices(portfolio)
 
     print(f"Here is how you should invest in the {selection} portfolio:\n")
-
     '''
     for key in portfolio:
         print(f"Symbol: {key} " + ' ' * (5 - len(key)) + f"| Current Price: {round(prices[key], 4)} | Invest: {portfolio[key] * value} | Allocation: {portfolio[key]}%")
     '''
-
     # Header
     print(f"{'Symbol':<8} | {'Current Price':>15} | {'Invest':>10} | {'Allocation':>12}")
-    print('-' * 60)  # Print a dividing line for clarity
-
+    print('-' * 60) 
+    
     for key in portfolio:
         current_price = round(prices[key], 4)
         invest_amount = round((portfolio[key]/100) * value, 2)
