@@ -1,4 +1,5 @@
-from prices import core, accelerator, getPrices
+from data import core, accelerator
+from prices import getPrices
 from datetime import datetime
 
 print("\nWelcome to the 'Cryptocurrency Investment Analyzer'.")
@@ -13,7 +14,7 @@ def read_valid_int(prompt, min, max):
             return value
         # For fun
         if value > 1000000:
-            print("Please, please, please do not invest more than $1,000,000 at a time.")
+            print("Please, 1please, please do not invest more than $1,000,000 at a time.")
     # If input is not a digit within min and max, the return message prompts the user to try again.
     return read_valid_int(f"Please enter your choice as an integer between {min} and {max}: ", min, max) 
 
