@@ -2,7 +2,7 @@
 
 ## Disclaimer
 
-This repo is missing a file — data.py — because that file includes private information about the CoinMarketCap API key and Forbes data that is locked behind a subscription wall. This repo only includes the driver.py file which runs the program in the command line, and the prices.py file which makes the REST API call. 
+This repo is missing a file, data.py, because that file includes private information about the CoinMarketCap API key and Forbes data that is locked behind a subscription wall. This repo only includes the driver.py file which runs the program in the command line, and the prices.py file which makes the REST API call. 
 
 ## Description
 
